@@ -7,11 +7,11 @@ st.title("Odds Analysis")
 
 col1, col2, col3 = st.columns(3)
 
-url = "https://kimany.pythonanywhere.com/data"  # Replace with your actual URL
+url = "https://kimany.pythonanywhere.com/data"  
 
 
 with col1:
-    # Input fields for parameters
+
     auth_key = st.text_input("Enter Auth Key")
     data_type = st.selectbox("Select Data Type", options=["Daily", "Monthly", "Weekly", "Custom Range"])
 

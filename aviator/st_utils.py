@@ -26,8 +26,7 @@ def get_months_available(url , auth_key):
 	}
 	url = url.strip("/") +f"/available_months"
 	response = requests.get(url , params= {"year":2024} , headers=headers)
- 
-    
+
 	return response
 
 def format_time(time, data_date):
