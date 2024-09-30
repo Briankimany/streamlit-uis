@@ -5,14 +5,20 @@ import seaborn as sns
 from datetime import datetime
 
 import streamlit as st
-
+import os
 def fetch_data(url, auth_key, params):
     headers = {
-        'Authorization': f'Bearer {auth_key}'  # Include the Bearer token in the headers
+        'Authorization': f'Bearer {auth_key}' ,
+        'account-type':os.environ.get('account-type',None)
     }
     response = requests.get(url, headers=headers, params=params)
     if response.status_code == 200:
-        return response.json()  # Assuming the response is in JSON format
+        data = response.json().get("data" , None)
+        if data == {} or data == None:
+            return None
+
+        return response.json()  
+    
     if response.status_code == 401:
         st.error("Unauthorized access")
 
