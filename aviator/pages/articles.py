@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.components.v1 as components
+import json
 
 # Streamlit App Title
 st.title("Article Title Placeholder Replacer")
@@ -49,5 +51,27 @@ if st.button("Generate Code"):
         
         # Optionally provide a success message
         st.success("The placeholder has been replaced. You can copy the code above.")
+        
+        # Create a copy to clipboard button
+        copy_button = f"""
+        <button onclick="navigator.clipboard.writeText({json.dumps(filled_template)}); 
+        document.getElementById('copy-success').style.display = 'block';" 
+        style="
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        ">
+        📋 Copy to Clipboard
+        </button>
+        <span id="copy-success" style="display: none; color: green;">Copied to clipboard!</span>
+        """
+
+        # Render the button
+        components.html(copy_button, height=60)
+
     else:
         st.warning("Please enter an article title before generating the code.")
