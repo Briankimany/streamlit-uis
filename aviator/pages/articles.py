@@ -65,9 +65,6 @@ if st.button("Generate Code"):
             cursor: pointer;
             font-size: 14px;
         ">
-        📋 Copy to Clipboard
-        </button>
-        <span id="copy-success" style="display: none; color: green;">Copied to clipboard!</span>
         """
 
         # Render the button
