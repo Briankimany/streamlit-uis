@@ -45,18 +45,24 @@ left_bracket_replacement = '%5B'
 right_bracket_replacement = '%5D'
 
 # Generate the mailto link
-mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
 
 
 st.title("Send Your Opposition to BT Maize")
 
 NAME = st.text_input("Your Name:  ")
 email = st.text_input("Email address: ")
+
 edited_body = st.text_area("Edit the email body", value=body, height=300)
 
+if st.button("Submit"):
+    edited_body = edited_body.replace("[Your Name]" , NAME)
+    edited_body = edited_body.replace("[Your Contact Information]",  email)
 
-edited_body = edited_body.replace("[Your Name]" , NAME)
-edited_body = edited_body.replace("[Your Contact Information]",  email)
+if st.button("View"):
+    st.text_area(edited_body)
+
+
+mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
 
 
 st.write("Click the button below to open your email app and send your feedback:")
