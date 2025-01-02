@@ -51,7 +51,7 @@ mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", s
 st.title("Send Your Opposition to BT Maize")
 
 NAME = st.text_input("Your Name:  ")
-email = st.text_iput("Email address: ")
+email = st.text_input("Email address: ")
 edited_body = st.text_area("Edit the email body", value=body, height=300)
 
 
