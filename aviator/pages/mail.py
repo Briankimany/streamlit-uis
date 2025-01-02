@@ -56,7 +56,7 @@ edited_body = st.text_area("Edit the email body", value=body, height=300)
 
 
 edited_body = edited_body.replace("[Your Name]" , NAME)
-edited_body = edited_body.replce("[Your Contact Information]",  email)
+edited_body = edited_body.replace("[Your Contact Information]",  email)
 
 
 st.write("Click the button below to open your email app and send your feedback:")
