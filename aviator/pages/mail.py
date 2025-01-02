@@ -34,7 +34,6 @@ While I acknowledge the potential benefits of agricultural biotechnology, I firm
 Thank you for considering my views on this critical matter. I trust that the NBA will prioritize the health, environment, and socio-economic well-being of the people of Kenya in its decision-making process.
 
 Yours faithfully,
-[Your Name]
 [Your Contact Information]
 """
 
@@ -49,21 +48,16 @@ right_bracket_replacement = '%5D'
 
 st.title("Send Your Opposition to BT Maize")
 
+
 NAME = st.text_input("Your Name:  ")
-email = st.text_input("Email address: ")
+if NAME:
+    body = body.replace("[Your Contact Information]",  NAME)
 
-edited_body = st.text_area("Edit the email body", value=body, height=300)
+    if st.button("Submit"):
+        st.text_area("Edit the email body", value=body, height=300)
+      
+        mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + edited_body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
 
-if st.button("Submit"):
-    edited_body = edited_body.replace("[Your Name]" , NAME)
-    edited_body = edited_body.replace("[Your Contact Information]",  email)
-
-if st.button("View"):
-    st.text_area(edited_body)
-
-
-mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
-
-
-st.write("Click the button below to open your email app and send your feedback:")
-st.markdown("[ Send Email](" + mailto_link + ")", unsafe_allow_html=True)
+        st.link_button("Send ", mailto_link )
+        st.write("Click the button below to open your email app and send your feedback:")
+        st.markdown("[ Send Email](" + mailto_link + ")", unsafe_allow_html=True)
