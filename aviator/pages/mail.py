@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Predefined recipient and email content
-recipient_email = "briangatu4@gmail.com"
+recipient_email = "btmaize@biosafetykenya.go.ke"
 subject = "Opposition to BT Maize"
 body = """
 Dear Sir/Madam,
