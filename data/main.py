@@ -3,7 +3,7 @@ from st_utils import fetch_data , generate_scatter_plot , generate_heatmap , gen
 import os
 
 st.set_page_config(layout="wide")
-st.title("Odds Analysis")
+st.title(" Analysis")
 
 col1, col2, col3 = st.columns(3)
 
