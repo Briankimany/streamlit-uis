@@ -56,7 +56,7 @@ if NAME:
     if st.button("Submit"):
         st.text_area("Edit the email body", value=body, height=300)
       
-        mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + edited_body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
+        mailto_link = "mailto:" + recipient_email + "?subject=" + subject.replace(" ", space_replacement) + "&body=" + body.replace(" ", space_replacement).replace("\n", newline_replacement).replace("[", left_bracket_replacement).replace("]", right_bracket_replacement)
 
         st.link_button("Send ", mailto_link )
         st.write("Click the button below to open your email app and send your feedback:")
